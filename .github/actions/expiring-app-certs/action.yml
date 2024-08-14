@@ -1,5 +1,5 @@
-name: Fetch Secrets & Perform an App Settings Variable Substitution
-description: Fetch secrets from Azure KeyVault for an API/UI and update the App Settings with them
+name: Check Apps for Expiring Certificates
+description: If any apps have certificates that are going to expire in 30 days - we need to be alerted 
 
 #outputs:
 #  publish_profile:
