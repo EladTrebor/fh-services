@@ -1,0 +1,62 @@
+name: Fetch Secrets & Perform an App Settings Variable Substitution
+description: Fetch secrets from Azure KeyVault for an API/UI and update the App Settings with them
+
+#outputs:
+#  publish_profile:
+#    value: ${{ steps.fetch.outputs.publish_profile }}
+
+runs:
+  using: composite
+
+  steps:
+    - name: Fetch Secrets from Azure
+      id: fetch
+      shell: pwsh
+      run: |-
+        $appsAsJson = az ad app list --all
+        $apps = $arr = $appsAsJson | ConvertFrom-Json
+        $currentDate = Get-Date
+        $utcDate = $currentDate.ToUniversalTime()
+        $expiryWindowInDays = 30
+        $expiringCount = 0
+        
+        foreach ($app in $apps)
+        {
+          $appDisplayName = $app.displayName
+      
+          # Only interested in our project apps
+          if ($appDisplayName.ToLower().contains("s181") -eq $false)
+          {
+            continue
+          }
+      
+          Write-Host "Checking $appDisplayName for certificate expiry..."
+      
+          foreach ($pwd in $app.passwordCredentials)
+          {
+            $displayName = $pwd.displayName
+            $startDateTime = $pwd.startDateTime
+            $endDateTime = $pwd.endDateTime
+            
+            if ($endDateTime -lt $utcDate)
+            {
+              Write-Host "The certificate for $displayName has already expired."
+            }
+            elseif ($utcDate -gt $endDateTime.AddDays(-$expiryWindowInDays))
+            {
+              $dateDiff = New-TimeSpan -Start $currentDate -End $endDateTime
+              $days = $dateDiff.Days
+              Write-Host "The certificate for $displayName is expiring in $days."
+              $expiringCount += 1
+            }
+            else
+            {
+              Write-Host "The certificate for $displayName is valid."
+            }
+          }
+        }
+        
+        if ($expiringCount -ge 0)
+        {
+          throw "There are $expiringCount app certificates that are expiring."
+        }

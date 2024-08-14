@@ -1,0 +1,26 @@
+name: Check Expiring App Certificates
+#run-name: Deploy to ${{ inputs.environment }}
+
+on:
+  schedule:
+    - cron: '*/5 * * * *' # Every 5 mins
+  #workflow_dispatch:
+  #  inputs:
+  #    environment:
+  #      description: The environment target for deployment
+  #      default: 'Development'
+  #      type: choice
+  #      options:
+  #        - 'Development'
+  #        - 'Test'
+  #        - 'Production'
+
+#permissions:
+#  id-token: write
+#  contents: read
+
+jobs:
+  check-app-cert-expiry:
+    name: Scheduled Check for App Expiring Certificates
+    uses: ./.github/workflows/expiring-app-certs.yml
+    secrets: inherit
