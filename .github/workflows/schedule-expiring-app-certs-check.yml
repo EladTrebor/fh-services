@@ -12,5 +12,10 @@ jobs:
     name: Scheduled Check for App Expiring Certificates
     runs-on: 'ubuntu-22.04'
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          
       - name: Check for App Expiring Certificates
         uses: ./.github/actions/expiring-app-certs
