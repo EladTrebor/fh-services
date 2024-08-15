@@ -9,8 +9,8 @@ runs:
   using: composite
 
   steps:
-    - name: Fetch Secrets from Azure
-      id: fetch
+    - name: Check for expiring app certificates
+      id: check-expiring-certs
       shell: pwsh
       run: |-
         $appsAsJson = az ad app list --all

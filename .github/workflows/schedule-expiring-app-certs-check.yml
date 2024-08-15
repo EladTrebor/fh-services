@@ -12,5 +12,5 @@ jobs:
     name: Scheduled Check for App Expiring Certificates
     runs-on: 'ubuntu-22.04'
     steps:
-      - name: Todo
+      - name: Check for App Expiring Certificates
         uses: ./.github/actions/expiring-app-certs
