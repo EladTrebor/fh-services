@@ -14,7 +14,7 @@ jobs:
   check-app-cert-expiry:
     name: Scheduled Check for App Expiring Certificates
     runs-on: 'ubuntu-22.04'
-    environment: 'Development'
+    environment: 'Test2'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -24,7 +24,7 @@ jobs:
       - name: Azure CLI Login
         uses: azure/login@v2
         with:
-          client-id: '26cae5ab-eae4-4c4f-8568-4cb0cd35540e' #'${{ secrets.AZURE_CLIENT_ID }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         
