@@ -5,7 +5,7 @@ on:
   push:
     branches: ["feature/fhb-395-expiring-app-certs-action"]
   #schedule:
-  #  - cron: '*/5 * * * *' # Every 5 mins - need to update
+  #  - cron: '*/5 * * * *' # Every 5 mins
 permissions:
   id-token: write
   contents: read
