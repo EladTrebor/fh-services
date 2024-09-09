@@ -1,0 +1,9 @@
+{
+  "solution": {
+    "path": "..\\..\\SuperSolution.sln",
+    "projects": [
+      "shared\\referral-shared\\src\\FamilyHubs.ReferralService.Shared\\FamilyHubs.ReferralService.Shared.csproj",
+      "shared\\referral-shared\\tests\\FamilyHubs.ReferralService.Shared.Tests\\FamilyHubs.ReferralService.Shared.Tests.csproj"
+    ]
+  }
+}

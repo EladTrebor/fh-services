@@ -1,0 +1,13 @@
+{
+  "solution": {
+    "path": "..\\..\\SuperSolution.sln",
+    "projects": [
+      "service\\service-directory-api\\src\\FamilyHubs.ServiceDirectory.Api\\FamilyHubs.ServiceDirectory.Api.csproj",
+      "service\\service-directory-api\\src\\FamilyHubs.ServiceDirectory.Core\\FamilyHubs.ServiceDirectory.Core.csproj",
+      "service\\service-directory-api\\src\\FamilyHubs.ServiceDirectory.Data\\FamilyHubs.ServiceDirectory.Data.csproj",
+      "service\\service-directory-api\\tests\\FamilyHubs.ServiceDirectory.Api.FunctionalTests\\FamilyHubs.ServiceDirectory.Api.FunctionalTests.csproj",
+      "service\\service-directory-api\\tests\\FamilyHubs.ServiceDirectory.Core.IntegrationTests\\FamilyHubs.ServiceDirectory.Core.IntegrationTests.csproj",
+      "service\\service-directory-api\\tests\\FamilyHubs.ServiceDirectoryApi.UnitTests\\FamilyHubs.ServiceDirectoryApi.UnitTests.csproj"
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "solution": {
+    "path": "..\\..\\SuperSolution.sln",
+    "projects": [
+      "shared\\service-directory-shared\\src\\FamilyHubs.ServiceDirectory.Shared\\FamilyHubs.ServiceDirectory.Shared.csproj",
+      "shared\\service-directory-shared\\tests\\FamilyHubs.ServiceDirectory.Shared.UnitTests\\FamilyHubs.ServiceDirectory.Shared.UnitTests.csproj"
+    ]
+  }
+}

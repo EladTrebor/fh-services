@@ -1,0 +1,13 @@
+{
+  "solution": {
+    "path": "..\\..\\SuperSolution.sln",
+    "projects": [
+      "service\\referral-api\\src\\FamilyHubs.Referral.Api\\FamilyHubs.Referral.Api.csproj",
+      "service\\referral-api\\src\\FamilyHubs.Referral.Core\\FamilyHubs.Referral.Core.csproj",
+      "service\\referral-api\\src\\FamilyHubs.Referral.Data\\FamilyHubs.Referral.Data.csproj",
+      "service\\referral-api\\tests\\FamilyHubs.ReferralApi.FunctionalTests\\FamilyHubs.Referral.FunctionalTests.csproj",
+      "service\\referral-api\\tests\\FamilyHubs.ReferralApi.Integration.Tests\\FamilyHubs.Referral.Integration.Tests.csproj",
+      "service\\referral-api\\tests\\FamilyHubs.ReferralApi.UnitTests\\FamilyHubs.Referral.UnitTests.csproj"
+    ]
+  }
+}

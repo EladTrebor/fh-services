@@ -1,0 +1,12 @@
+{
+  "solution": {
+    "path": "..\\..\\SuperSolution.sln",
+    "projects": [
+      "service\\idam-api\\src\\FamilyHubs.Idam.Api\\FamilyHubs.Idam.Api.csproj",
+      "service\\idam-api\\src\\FamilyHubs.Idam.Core\\FamilyHubs.Idam.Core.csproj",
+      "service\\idam-api\\src\\FamilyHubs.Idam.Data\\FamilyHubs.Idam.Data.csproj",
+      "service\\idam-api\\tests\\FamilyHubs.Idam.Api.FunctionalTests\\FamilyHubs.Idam.Api.FunctionalTests.csproj",
+      "service\\idam-api\\tests\\FamilyHubs.Idam.Core.IntegrationTests\\FamilyHubs.Idam.Core.IntegrationTests.csproj"
+    ]
+  }
+}

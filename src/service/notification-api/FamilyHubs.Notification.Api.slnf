@@ -1,0 +1,16 @@
+{
+  "solution": {
+    "path": "..\\..\\SuperSolution.sln",
+    "projects": [
+      "service\\notification-api\\src\\FamilyHubs.Notification.Api\\FamilyHubs.Notification.Api.csproj",
+      "service\\notification-api\\src\\FamilyHubs.Notification.Core\\FamilyHubs.Notification.Core.csproj",
+      "service\\notification-api\\src\\FamilyHubs.Notification.Data\\FamilyHubs.Notification.Data.csproj",
+      "service\\notification-api\\src\\FamilyHubs.Notification.Api.Client\\FamilyHubs.Notification.Api.Client.csproj",
+      "service\\notification-api\\tests\\FamilyHubs.Notification.Api.Contracts.Tests\\FamilyHubs.Notification.Api.Contracts.Tests.csproj",
+      "service\\notification-api\\tests\\FamilyHubs.Notification.FunctionalTests\\FamilyHubs.Notification.FunctionalTests.csproj",
+      "service\\notification-api\\tests\\FamilyHubs.Notification.IntegrationTests\\FamilyHubs.Notification.IntegrationTests.csproj",
+      "service\\notification-api\\tests\\FamilyHubs.Notification.UnitTests\\FamilyHubs.Notification.UnitTests.csproj",
+      "service\\notification-api\\shared\\FamilyHubs.Notification.Api.Contracts\\FamilyHubs.Notification.Api.Contracts.csproj"
+    ]
+  }
+}

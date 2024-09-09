@@ -1,0 +1,12 @@
+{
+  "solution": {
+    "path": "..\\..\\SuperSolution.sln",
+    "projects": [
+      "service\\report-api\\src\\FamilyHubs.Report.Api\\FamilyHubs.Report.Api.csproj",
+      "service\\report-api\\src\\FamilyHubs.Report.Core\\FamilyHubs.Report.Core.csproj",
+      "service\\report-api\\src\\FamilyHubs.Report.Data\\FamilyHubs.Report.Data.csproj",
+      "service\\report-api\\tests\\FamilyHubs.ReportApi.FunctionalTests\\FamilyHubs.ReportApi.FunctionalTests.csproj",
+      "service\\report-api\\tests\\FamilyHubs.ReportApi.UnitTests\\FamilyHubs.ReportApi.UnitTests.csproj"
+    ]
+  }
+}

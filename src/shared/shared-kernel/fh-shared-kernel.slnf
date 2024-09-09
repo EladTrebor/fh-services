@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "path": "..\\..\\SuperSolution.sln",
+    "projects": [
+      "shared\\shared-kernel\\src\\EntityFrameworkCore.DataEncryption\\EntityFrameworkCore.DataEncryption.csproj",
+      "shared\\shared-kernel\\src\\fh-shared-kernel.shared-kernel\\FamilyHubs.SharedKernel.csproj",
+      "shared\\shared-kernel\\tests\\EntityFrameworkCore.DataEncryption.Test\\EntityFrameworkCore.DataEncryption.Test.csproj",
+      "shared\\shared-kernel\\tests\\fh-shared-kernel.unit-tests\\FamilyHubs.SharedKernel.UnitTests.csproj"
+    ]
+  }
+}
