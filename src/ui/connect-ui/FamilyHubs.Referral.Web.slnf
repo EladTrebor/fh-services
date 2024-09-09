@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "path": "..\\..\\SuperSolution.sln",
+    "projects": [
+      "ui\\connect-ui\\src\\FamilyHubs.Referral.Core\\FamilyHubs.Referral.Core.csproj",
+      "ui\\connect-ui\\src\\FamilyHubs.Referral.Infrastructure\\FamilyHubs.Referral.Infrastructure.csproj",
+      "ui\\connect-ui\\src\\FamilyHubs.Referral.Web\\FamilyHubs.Referral.Web.csproj",
+      "ui\\connect-ui\\tests\\FamilyHubs.ReferralUi.UnitTests\\FamilyHubs.ReferralUi.UnitTests.csproj"
+    ]
+  }
+}

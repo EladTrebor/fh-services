@@ -1,0 +1,11 @@
+{
+  "solution": {
+    "path": "..\\..\\SuperSolution.sln",
+    "projects": [
+      "ui\\connect-dashboard-ui\\src\\FamilyHubs.RequestForSupport.Core\\FamilyHubs.RequestForSupport.Core.csproj",
+      "ui\\connect-dashboard-ui\\src\\FamilyHubs.RequestForSupport.Infrastructure\\FamilyHubs.RequestForSupport.Infrastructure.csproj",
+      "ui\\connect-dashboard-ui\\src\\FamilyHubs.RequestForSupport.Web\\FamilyHubs.RequestForSupport.Web.csproj",
+      "ui\\connect-dashboard-ui\\tests\\FamilyHubs.RequestForSupport.UnitTests\\FamilyHubs.RequestForSupport.UnitTests.csproj"
+    ]
+  }
+}
