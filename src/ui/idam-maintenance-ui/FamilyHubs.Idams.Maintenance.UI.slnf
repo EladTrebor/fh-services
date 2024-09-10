@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "path": "..\\..\\SuperSolution.sln",
+    "projects": [
+      "ui\\idam-maintenance-ui\\src\\FamilyHubs.Idams.Maintenance.Core\\FamilyHubs.Idams.Maintenance.Core.csproj",
+      "ui\\idam-maintenance-ui\\src\\FamilyHubs.Idams.Maintenance.Data\\FamilyHubs.Idams.Maintenance.Data.csproj",
+      "ui\\idam-maintenance-ui\\src\\FamilyHubs.Idams.Maintenance.UI\\FamilyHubs.Idams.Maintenance.UI.csproj"
+    ]
+  }
+}

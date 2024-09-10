@@ -1,0 +1,12 @@
+{
+  "solution": {
+    "path": "..\\..\\SuperSolution.sln",
+    "projects": [
+      "ui\\find-ui\\src\\FamilyHubs.ServiceDirectory.Core\\FamilyHubs.ServiceDirectory.Core.csproj",
+      "ui\\find-ui\\src\\FamilyHubs.ServiceDirectory.Infrastructure\\FamilyHubs.ServiceDirectory.Infrastructure.csproj",
+      "ui\\find-ui\\src\\FamilyHubs.ServiceDirectory.Web\\FamilyHubs.ServiceDirectory.Web.csproj",
+      "ui\\find-ui\\tests\\FamilyHubs.ServiceDirectory.UnitTests\\FamilyHubs.ServiceDirectory.UnitTests.csproj",
+      "ui\\find-ui\\tests\\FamilyHubs.ServiceDirectory.JavascriptUnitTests\\FamilyHubs.ServiceDirectory.JavascriptUnitTests.csproj"
+    ]
+  }
+}

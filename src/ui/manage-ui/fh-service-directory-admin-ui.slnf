@@ -1,0 +1,12 @@
+{
+  "solution": {
+    "path": "..\\..\\SuperSolution.sln",
+    "projects": [
+      "ui\\manage-ui\\src\\FamilyHubs.ServiceDirectory.Admin.Core\\FamilyHubs.ServiceDirectory.Admin.Core.csproj",
+      "ui\\manage-ui\\src\\FamilyHubs.ServiceDirectory.Admin.Web\\FamilyHubs.ServiceDirectory.Admin.Web.csproj",
+      "ui\\manage-ui\\Test\\FamilyHubs.ServiceDirectory.Admin.Web.Cypress\\FamilyHubs.ServiceDirectory.Admin.Web.Cypress.csproj",
+      "ui\\manage-ui\\Test\\FamilyHubs.ServiceDirectory.Admin.Web.IntegrationTests\\FamilyHubs.ServiceDirectory.Admin.Web.IntegrationTests.csproj",
+      "ui\\manage-ui\\Test\\FamilyHubs.ServiceDirectory.Admin.Web.UnitTests\\FamilyHubs.ServiceDirectory.Admin.Web.UnitTests.csproj"
+    ]
+  }
+}
