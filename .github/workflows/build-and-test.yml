@@ -14,10 +14,9 @@ on:
       - 'src/**'
 
 jobs:
-  
   build_and_test:
     name: Build Project & Run Tests
-    runs-on: ${{ inputs.runs_on }}
+    runs-on: 'ubuntu-22.04'
     defaults:
       run:
         working-directory: src
