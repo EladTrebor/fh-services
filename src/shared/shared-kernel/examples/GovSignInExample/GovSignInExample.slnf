@@ -1,0 +1,9 @@
+{
+  "solution": {
+    "path": "..\\..\\..\\..\\SuperSolution.sln",
+    "projects": [
+      "shared\\shared-kernel\\examples\\GovSignInExample\\GovSignInExample\\GovSignInExample.csproj",
+      "shared\\shared-kernel\\examples\\GovSignInExample\\SecureApiExample\\SecureApiExample.csproj"
+    ]
+  }
+}
