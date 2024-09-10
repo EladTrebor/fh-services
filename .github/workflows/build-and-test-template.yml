@@ -27,6 +27,11 @@ jobs:
         with:
           ref: ${{ github.ref }}
 
+      - name: Install Spatialite for Sqlite
+        run: |
+          sudo apt-get update
+          sudo apt-get install libsqlite3-mod-spatialite
+        
       - name: Setup .NET ${{ inputs.dotnet_version }}
         uses: actions/setup-dotnet@v4
         with:
