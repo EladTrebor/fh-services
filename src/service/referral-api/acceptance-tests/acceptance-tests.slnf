@@ -2,7 +2,7 @@
   "solution": {
     "path": "..\\..\\..\\SuperSolution.sln",
     "projects": [
-      "ui\\referral-api\\acceptance-tests\\FamilyHubs.Referral.Api.AcceptanceTests\\FamilyHubs.Referral.Api.AcceptanceTests.csproj"
+      "service\\referral-api\\acceptance-tests\\FamilyHubs.Referral.Api.AcceptanceTests\\FamilyHubs.Referral.Api.AcceptanceTests.csproj"
     ]
   }
 }

@@ -1,0 +1,8 @@
+{
+  "solution": {
+    "path": "..\\..\\..\\SuperSolution.sln",
+    "projects": [
+      "service\\report-api\\acceptance-tests\\FamilyHubs.Report.Api.AcceptanceTests\\FamilyHubs.Report.Api.AcceptanceTests.csproj"
+    ]
+  }
+}
