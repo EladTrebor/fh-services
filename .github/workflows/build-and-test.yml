@@ -6,7 +6,7 @@ concurrency:
 
 on:
   push:
-    branches: ["main", "release-*"]
+    branches: ["main", "release-*", "test-single-build"]
   pull_request:
     paths:
       - '.github/workflows/build-and-test.yml'
@@ -14,60 +14,99 @@ on:
       - 'src/**'
 
 jobs:
+  
   build_and_test:
-    name: ${{ matrix.job_name }}
-    strategy:
-      fail-fast: false
-      matrix:
-        working_directory:
-          [
-            service/notification-api,
-            service/idam-api,
-            service/service-directory-api,
-            service/referral-api,
-            service/report-api,
-            ui/connect-dashboard-ui,
-            ui/connect-ui,
-            ui/find-ui,
-            ui/idam-maintenance-ui,
-            ui/manage-ui,
-            shared/referral-shared,
-            shared/service-directory-shared,
-            shared/shared-kernel,
-            shared/web-components
-          ]
-        include:
-          - working_directory: service/notification-api
-            job_name: "Test - Notification API"
-          - working_directory: service/idam-api
-            job_name: "Test - IDAM API"
-          - working_directory: service/service-directory-api
-            job_name: "Test - Service Directory API"
-            runs_on_windows: true
-          - working_directory: service/referral-api
-            job_name: "Test - Referral API"
-          - working_directory: service/report-api
-            job_name: "Test - Report API"
-          - working_directory: ui/connect-dashboard-ui
-            job_name: "Test - Connect Dashboard UI"
-          - working_directory: ui/connect-ui
-            job_name: "Test - Connect UI"
-          - working_directory: ui/find-ui
-            job_name: "Test - Find UI"
-          - working_directory: ui/idam-maintenance-ui
-            job_name: "Test - IDAM Maintenance UI"
-          - working_directory: ui/manage-ui
-            job_name: "Test - Manage UI"
-          - working_directory: shared/referral-shared
-            job_name: "Test - Referral Shared"
-          - working_directory: shared/service-directory-shared
-            job_name: "Test - Service Directory Shared"
-          - working_directory: shared/shared-kernel
-            job_name: "Test - Kernel Shared"
-          - working_directory: shared/web-components
-            job_name: "Test - Web Components Shared"
-    uses: ./.github/workflows/build-and-test-template.yml
-    with:
-      working_directory: ${{ matrix.working_directory }}
-      dotnet_version: ${{ vars.DOTNET_VERSION_V8 }}
-      runs_on: ${{ matrix.runs_on_windows && 'windows-2022' || 'ubuntu-22.04' }}
+    name: Build Project & Run Tests
+    runs-on: ${{ inputs.runs_on }}
+    defaults:
+      run:
+        working-directory: src
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Setup .NET ${{ inputs.dotnet_version }}
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ inputs.dotnet_version }}
+
+      - name: Package Cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - name: Restore Project
+        shell: bash
+        run: dotnet restore
+
+      - name: Build Project
+        shell: bash
+        run: dotnet build --no-restore
+
+      - name: Test Project
+        shell: bash
+        run: dotnet test --no-build --no-restore --verbosity minimal
+        
+  #build_and_test:
+  #  name: ${{ matrix.job_name }}
+  #  strategy:
+  #    fail-fast: false
+  #    matrix:
+  #      working_directory:
+  #        [
+  #          service/notification-api,
+  #          service/idam-api,
+  #          service/service-directory-api,
+  #          service/referral-api,
+  #          service/report-api,
+  #          ui/connect-dashboard-ui,
+  #          ui/connect-ui,
+  #          ui/find-ui,
+  #          ui/idam-maintenance-ui,
+  #          ui/manage-ui,
+  #          shared/referral-shared,
+  #          shared/service-directory-shared,
+  #          shared/shared-kernel,
+  #          shared/web-components
+  #        ]
+  #      include:
+  #        - working_directory: service/notification-api
+  #          job_name: "Test - Notification API"
+  #        - working_directory: service/idam-api
+  #          job_name: "Test - IDAM API"
+  #        - working_directory: service/service-directory-api
+  #          job_name: "Test - Service Directory API"
+  #          runs_on_windows: true
+  #        - working_directory: service/referral-api
+  #          job_name: "Test - Referral API"
+  #        - working_directory: service/report-api
+  #          job_name: "Test - Report API"
+  #        - working_directory: ui/connect-dashboard-ui
+  #          job_name: "Test - Connect Dashboard UI"
+  #        - working_directory: ui/connect-ui
+  #          job_name: "Test - Connect UI"
+  #        - working_directory: ui/find-ui
+  #          job_name: "Test - Find UI"
+  #        - working_directory: ui/idam-maintenance-ui
+  #          job_name: "Test - IDAM Maintenance UI"
+  #        - working_directory: ui/manage-ui
+  #          job_name: "Test - Manage UI"
+  #        - working_directory: shared/referral-shared
+  #          job_name: "Test - Referral Shared"
+  #        - working_directory: shared/service-directory-shared
+  #          job_name: "Test - Service Directory Shared"
+  #        - working_directory: shared/shared-kernel
+  #          job_name: "Test - Kernel Shared"
+  #        - working_directory: shared/web-components
+  #          job_name: "Test - Web Components Shared"
+  #  uses: ./.github/workflows/build-and-test-template.yml
+  #  with:
+  #    working_directory: ${{ matrix.working_directory }}
+  #    dotnet_version: ${{ vars.DOTNET_VERSION_V8 }}
+  #    runs_on: ${{ matrix.runs_on_windows && 'windows-2022' || 'ubuntu-22.04' }}
