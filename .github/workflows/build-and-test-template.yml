@@ -30,7 +30,7 @@ jobs:
       - name: Install Spatialite for Sqlite
         run: |
           sudo apt-get update
-          sudo dpkg -i ./libsqlite3-mod-spatialite_5.1.0-3_amd64.deb
+          sudo dpkg -i ${{ GITHUB_WORKSPACE }}/libsqlite3-mod-spatialite_5.1.0-3_amd64.deb
           sudo apt-get -f install
         
       - name: Setup .NET ${{ inputs.dotnet_version }}
