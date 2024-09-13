@@ -6,7 +6,7 @@ concurrency:
 
 on:
   push:
-    branches: ["main", "release-*", "test-linux-sd-tests"]
+    branches: ["main", "release-*", "test-linux-sd-tests-tc"]
   pull_request:
     paths:
       - '.github/workflows/build-and-test.yml'
