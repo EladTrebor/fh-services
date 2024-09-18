@@ -32,8 +32,8 @@ public class DeleteServiceByIdCommandHandler : IRequestHandler<DeleteServiceById
     {
         try
         {
-            var entity = await _context.Services
-                .FirstOrDefaultAsync(p => p.Id == request.Id, cancellationToken);
+            Service? entity = await _context.Services
+                .FirstOrDefaultAsync(service => service.Id == request.Id, cancellationToken);
 
             if (entity is null)
                 throw new NotFoundException(nameof(Service), request.Id.ToString());
