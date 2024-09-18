@@ -38,7 +38,7 @@ public class DeleteServiceByIdCommandHandler : IRequestHandler<DeleteServiceById
             if (entity is null)
                 throw new NotFoundException(nameof(Service), request.Id.ToString());
 
-            entity.Status = ServiceStatusType.Deleted;
+            entity.Status = ServiceStatusType.Defunct;
 
             await _context.SaveChangesAsync(cancellationToken);
 
