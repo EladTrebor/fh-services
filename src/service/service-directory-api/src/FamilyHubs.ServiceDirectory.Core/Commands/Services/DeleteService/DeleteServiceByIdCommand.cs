@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace FamilyHubs.ServiceDirectory.Core.Commands.Services.DeleteService;
+
 public class DeleteServiceByIdCommand : IRequest<bool>
 {
     public DeleteServiceByIdCommand(long id)
@@ -22,7 +23,8 @@ public class DeleteServiceByIdCommandHandler : IRequestHandler<DeleteServiceById
     private readonly ApplicationDbContext _context;
     private readonly ILogger<DeleteServiceByIdCommandHandler> _logger;
 
-    public DeleteServiceByIdCommandHandler(ApplicationDbContext context, ILogger<DeleteServiceByIdCommandHandler> logger)
+    public DeleteServiceByIdCommandHandler(ApplicationDbContext context,
+        ILogger<DeleteServiceByIdCommandHandler> logger)
     {
         _context = context;
         _logger = logger;
@@ -46,7 +48,8 @@ public class DeleteServiceByIdCommandHandler : IRequestHandler<DeleteServiceById
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "An error occurred creating organisation. {exceptionMessage}", ex.Message);
+            _logger.LogError(ex, "An error occurred deleting the Service with ID {sId}. {exceptionMessage}", request.Id,
+                ex.Message);
             throw;
         }
     }
