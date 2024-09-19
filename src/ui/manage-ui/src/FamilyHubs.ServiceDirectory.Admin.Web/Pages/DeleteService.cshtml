@@ -1,0 +1,50 @@
+@page
+@model FamilyHubs.ServiceDirectory.Admin.Web.Pages.DeleteService
+@{
+    ViewData["Title"] = "Deleting a Service";
+}
+
+@section Back {
+<a asp-page="\Welcome" class="govuk-back-link">Back</a>
+}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-4">
+                <h1 class="govuk-fieldset__heading">
+                    Are you sure you want to permanently delete this service?
+                </h1>
+            </legend>
+            <p class="govuk-body">By deleting this service you will completely remove it from both the directory and Manage family support services and accounts.</p>
+
+            <form method="post" novalidate data-validate="my-form-validation">
+
+                <div class="govuk-form-group">
+                    <h2 class="govuk-heading-m govuk-!-margin-top-6">Do you want to delete @Model.ServiceName?</h2>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="delete-service" name="deleteService" type="radio" value="Yes">
+                            <label class="govuk-label govuk-radios__label" for="delete-service">
+                                Yes, I want to delete it
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="delete-service-no" name="deleteService" type="radio" value="No">
+                            <label class="govuk-label govuk-radios__label" for="delete-service-no">
+                                No, I want to keep it
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="govuk-button-group">
+                    <button class="govuk-button">
+                        Confirm
+                    </button>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+</div>
