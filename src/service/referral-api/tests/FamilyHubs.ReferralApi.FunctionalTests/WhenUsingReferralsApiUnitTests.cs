@@ -505,9 +505,9 @@ public class WhenUsingReferralsApiUnitTests : BaseWhenUsingOpenReferralApiUnitTe
 
         using var response = await Client.SendAsync(request);
 
-        int result = JsonSerializer.Deserialize<int>(await response.Content.ReadAsStringAsync());
-
         response.EnsureSuccessStatusCode();
+
+        int result = JsonSerializer.Deserialize<int>(await response.Content.ReadAsStringAsync());
 
         Assert.Equal(expected, result);
     }
