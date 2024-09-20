@@ -494,13 +494,6 @@ public class WhenUsingReferralsApiUnitTests : BaseWhenUsingOpenReferralApiUnitTe
     [InlineData(2, 0)]
     public async Task Then_ReferralCount_ByServiceId_IsRetrieved(int serviceId, int expected)
     {
-        if (!IsRunningLocally() || Client == null)
-        {
-            // Skip the test if not running locally
-            Assert.True(true, "Test skipped because it is not running locally.");
-            return;
-        }
-
         var request = new HttpRequestMessage
         {
             Method = HttpMethod.Get,
