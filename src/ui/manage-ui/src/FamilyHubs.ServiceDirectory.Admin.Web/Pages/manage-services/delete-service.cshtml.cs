@@ -25,6 +25,9 @@ public class DeleteService : PageModel
     private async Task<bool> IsOpenConnectionRequests() =>
         await _referralServiceClient.GetReferralsCountByServiceId(ServiceId) > 0;
 
+    private async Task<string> GetServiceName() =>
+        (await _serviceDirectoryClient.GetServiceById(ServiceId)).Name;
+
     private bool NoOptionSelected() => !Yes && !No;
 
     public async Task<IActionResult> OnPostAsync()
@@ -38,12 +41,19 @@ public class DeleteService : PageModel
             return await OnGetAsync(ServiceId);
         }
 
+        if (No)
+        {
+            // TODO: Implement "No" Shutter Page
+            throw new NotImplementedException("\"No\" Shutter Page Required");
+        }
+
         if (await IsOpenConnectionRequests())
         {
             return RedirectToPage("Welcome"); // TODO: Open Connection Requests Error Page
         }
 
-        throw new NotImplementedException();
+        // TODO: Implement "Yes" Shutter Page
+        throw new NotImplementedException("\"Yes\" Shutter Page Required");
     }
 
     public async Task<IActionResult> OnGetAsync(long serviceId)
@@ -55,7 +65,7 @@ public class DeleteService : PageModel
             return RedirectToPage("Welcome"); // TODO: Open Connection Requests Error Page
         }
 
-        ServiceName = (await _serviceDirectoryClient.GetServiceById(ServiceId)).Name;
+        ServiceName = await GetServiceName();
 
         return Page();
     }
