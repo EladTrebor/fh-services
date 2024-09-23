@@ -1,4 +1,7 @@
+using System.Collections.Immutable;
 using FamilyHubs.ServiceDirectory.Admin.Core.ApiClient;
+using FamilyHubs.ServiceDirectory.Admin.Core.Models;
+using FamilyHubs.SharedKernel.Razor.ErrorNext;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -14,7 +17,8 @@ public class DeleteService : PageModel
 
     [BindProperty] public bool Yes { get; set; }
     [BindProperty] public bool No { get; set; }
-    public bool Error { get; set; }
+
+    public IErrorState Error { get; set; } = ErrorState.Empty;
 
     public DeleteService(IServiceDirectoryClient serviceDirectoryClient, IReferralService referralServiceClient)
     {
@@ -34,7 +38,7 @@ public class DeleteService : PageModel
     {
         if (NeitherRadioButtonIsSelected())
         {
-            Error = true;
+            Error = ErrorState.Create(PossibleErrors, ErrorId.Delete_Service__NeitherRadioButtonIsSelected);
             return await OnGetAsync(ServiceId);
         }
 
@@ -69,4 +73,8 @@ public class DeleteService : PageModel
 
         return Page();
     }
+
+    public static readonly ImmutableDictionary<int, PossibleError> PossibleErrors =
+        ImmutableDictionary.Create<int, PossibleError>()
+            .Add(ErrorId.Delete_Service__NeitherRadioButtonIsSelected, "Error Test Message");
 }
