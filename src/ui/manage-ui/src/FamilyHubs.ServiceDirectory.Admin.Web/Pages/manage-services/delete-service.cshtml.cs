@@ -28,14 +28,11 @@ public class DeleteService : PageModel
     private async Task<string> GetServiceName() =>
         (await _serviceDirectoryClient.GetServiceById(ServiceId)).Name;
 
-    private bool NoOptionSelected() => !Yes && !No;
+    private bool NeitherRadioButtonIsSelected() => !Yes && !No;
 
     public async Task<IActionResult> OnPostAsync()
     {
-        // TODO: Redirect to Error Page if True
-        // TODO: Delete the Service if False
-
-        if (NoOptionSelected())
+        if (NeitherRadioButtonIsSelected())
         {
             Error = true;
             return await OnGetAsync(ServiceId);
@@ -49,9 +46,11 @@ public class DeleteService : PageModel
 
         if (await IsOpenConnectionRequests())
         {
-            return RedirectToPage("Welcome"); // TODO: Open Connection Requests Error Page
+            // TODO: Implement "There are open Connection Requests" Error Page
+            throw new NotImplementedException("\"There are open Connection Requests\" Error Page Required");
         }
 
+        // TODO: Mark Service as Defunct
         // TODO: Implement "Yes" Shutter Page
         throw new NotImplementedException("\"Yes\" Shutter Page Required");
     }
@@ -62,7 +61,8 @@ public class DeleteService : PageModel
 
         if (await IsOpenConnectionRequests())
         {
-            return RedirectToPage("Welcome"); // TODO: Open Connection Requests Error Page
+            // TODO: Implement "There are open Connection Requests" Error Page
+            throw new NotImplementedException("\"There are open Connection Requests\" Error Page Required");
         }
 
         ServiceName = await GetServiceName();
