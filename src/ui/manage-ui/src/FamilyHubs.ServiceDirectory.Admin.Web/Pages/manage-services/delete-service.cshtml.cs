@@ -9,9 +9,12 @@ public class DeleteService : PageModel
     private readonly IServiceDirectoryClient _serviceDirectoryClient;
     private readonly IReferralService _referralServiceClient;
 
-    // TODO: Note while building: 1 has 0 requests, 664 has 1 request
-    public long ServiceId { get; set; }
-    public string? ServiceName { get; set; }
+    [BindProperty] public long ServiceId { get; set; }
+    public string ServiceName { get; set; } = null!;
+
+    [BindProperty] public bool Yes { get; set; }
+    [BindProperty] public bool No { get; set; }
+    public bool Error { get; set; }
 
     public DeleteService(IServiceDirectoryClient serviceDirectoryClient, IReferralService referralServiceClient)
     {
@@ -22,10 +25,18 @@ public class DeleteService : PageModel
     private async Task<bool> IsOpenConnectionRequests() =>
         await _referralServiceClient.GetReferralsCountByServiceId(ServiceId) > 0;
 
+    private bool NoOptionSelected() => !Yes && !No;
+
     public async Task<IActionResult> OnPostAsync()
     {
         // TODO: Redirect to Error Page if True
         // TODO: Delete the Service if False
+
+        if (NoOptionSelected())
+        {
+            Error = true;
+            return await OnGetAsync(ServiceId);
+        }
 
         if (await IsOpenConnectionRequests())
         {
@@ -44,7 +55,7 @@ public class DeleteService : PageModel
             return RedirectToPage("Welcome"); // TODO: Open Connection Requests Error Page
         }
 
-        ServiceName = (await _serviceDirectoryClient.GetServiceById(serviceId)).Name;
+        ServiceName = (await _serviceDirectoryClient.GetServiceById(ServiceId)).Name;
 
         return Page();
     }

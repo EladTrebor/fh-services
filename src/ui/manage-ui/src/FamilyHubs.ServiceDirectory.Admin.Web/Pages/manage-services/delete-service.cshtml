@@ -17,19 +17,25 @@
                 </h1>
             </legend>
             <p class="govuk-body">By deleting this service you will completely remove it from both the directory and Manage family support services and accounts.</p>
-            <form method="post">
+            <form method="post" novalidate>
+
+                @if (@Model.Error)
+                {
+                    <p>Error !!!!!!!</p>
+                }
+
                 <div class="govuk-form-group">
-                    <h2 class="govuk-heading-m govuk-!-margin-top-6">Do you want to delete @Model.ServiceName?</h2>
+                    <h2 class="govuk-heading-m govuk-!-margin-top-6">Do you want to delete @Model.ServiceName</h2>
                     <div class="govuk-radios" data-module="govuk-radios">
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="delete-service" name="deleteService" type="radio" value="Yes">
-                            <label class="govuk-label govuk-radios__label" for="delete-service">
+                            <input class="govuk-radios__input" asp-for="@Model.Yes" id="Model_Yes" type="radio" value="true">
+                            <label class="govuk-label govuk-radios__label" for="Model_Yes">
                                 Yes, I want to delete it
                             </label>
                         </div>
                         <div class="govuk-radios__item">
-                            <input class="govuk-radios__input" id="delete-service-no" name="deleteService" type="radio" value="No">
-                            <label class="govuk-label govuk-radios__label" for="delete-service-no">
+                            <input class="govuk-radios__input" asp-for="@Model.No" id="Model_No" type="radio" value="true">
+                            <label class="govuk-label govuk-radios__label" for="Model_No">
                                 No, I want to keep it
                             </label>
                         </div>
