@@ -1,16 +1,15 @@
 @page
-@model FamilyHubs.ServiceDirectory.Admin.Web.Pages.DeleteService
+@model DeleteService
 @{
     ViewData["Title"] = "Deleting a Service";
 }
 
-@section Back {
-<a asp-page="\Welcome" class="govuk-back-link">Back</a>
-}
+@* @section Back { *@
+@* <a asp-page="\Welcome" class="govuk-back-link">Back</a> *@
+@* } *@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
         <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l govuk-!-margin-bottom-4">
                 <h1 class="govuk-fieldset__heading">
@@ -18,9 +17,7 @@
                 </h1>
             </legend>
             <p class="govuk-body">By deleting this service you will completely remove it from both the directory and Manage family support services and accounts.</p>
-
-            <form method="post" novalidate data-validate="my-form-validation">
-
+            <form method="post">
                 <div class="govuk-form-group">
                     <h2 class="govuk-heading-m govuk-!-margin-top-6">Do you want to delete @Model.ServiceName?</h2>
                     <div class="govuk-radios" data-module="govuk-radios">
@@ -38,7 +35,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="govuk-button-group">
                     <button class="govuk-button">
                         Confirm
