@@ -34,12 +34,20 @@ public class DeleteService : PageModel
 
     private bool NeitherRadioButtonIsSelected() => !Yes && !No;
 
+    private ImmutableDictionary<int, PossibleError> GetError()
+    {
+        string errorMessage = $"Select if you want to delete {ServiceName}";
+        return ImmutableDictionary.Create<int, PossibleError>()
+            .Add(ErrorId.Delete_Service__NeitherRadioButtonIsSelected, errorMessage);
+    }
+
     public async Task<IActionResult> OnPostAsync()
     {
         if (NeitherRadioButtonIsSelected())
         {
-            Error = ErrorState.Create(PossibleError, ErrorId.Delete_Service__NeitherRadioButtonIsSelected);
-            return await OnGetAsync(ServiceId);
+            ServiceName = await GetServiceName();
+            Error = ErrorState.Create(GetError(), ErrorId.Delete_Service__NeitherRadioButtonIsSelected);
+            return Page();
         }
 
         if (No)
@@ -73,8 +81,4 @@ public class DeleteService : PageModel
 
         return Page();
     }
-
-    private static readonly ImmutableDictionary<int, PossibleError> PossibleError =
-        ImmutableDictionary.Create<int, PossibleError>()
-            .Add(ErrorId.Delete_Service__NeitherRadioButtonIsSelected, "Error Test Message");
 }
