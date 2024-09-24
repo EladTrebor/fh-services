@@ -38,7 +38,7 @@ public class DeleteService : PageModel
     {
         if (NeitherRadioButtonIsSelected())
         {
-            Error = ErrorState.Create(PossibleErrors, ErrorId.Delete_Service__NeitherRadioButtonIsSelected);
+            Error = ErrorState.Create(PossibleError, ErrorId.Delete_Service__NeitherRadioButtonIsSelected);
             return await OnGetAsync(ServiceId);
         }
 
@@ -74,7 +74,7 @@ public class DeleteService : PageModel
         return Page();
     }
 
-    public static readonly ImmutableDictionary<int, PossibleError> PossibleErrors =
+    private static readonly ImmutableDictionary<int, PossibleError> PossibleError =
         ImmutableDictionary.Create<int, PossibleError>()
             .Add(ErrorId.Delete_Service__NeitherRadioButtonIsSelected, "Error Test Message");
 }

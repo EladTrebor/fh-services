@@ -23,7 +23,7 @@
             </legend>
             <p class="govuk-body">By deleting this service you will completely remove it from both the directory and Manage family support services and accounts.</p>
             <form method="post" novalidate>
-                <div class="govuk-form-group" aria-describedby="@error?.FormGroupClass">
+                <div class="govuk-form-group @error?.FormGroupClass">
                     <h2 class="govuk-heading-m govuk-!-margin-top-6">Do you want to delete @Model.ServiceName</h2>
                     <partial name="_ErrorMessageNext" model="error"/>
                     <div class="govuk-radios" data-module="govuk-radios">
