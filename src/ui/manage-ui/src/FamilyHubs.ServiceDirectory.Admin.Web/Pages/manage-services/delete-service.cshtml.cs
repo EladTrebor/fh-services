@@ -11,6 +11,7 @@ public class DeleteService : PageModel
 {
     private readonly IServiceDirectoryClient _serviceDirectoryClient;
     private readonly IReferralService _referralServiceClient;
+    private const string OpenConnectionErrorUrl = "/manage-services/delete-service-error";
 
     [BindProperty] public long ServiceId { get; set; }
     public string ServiceName { get; set; } = null!;
@@ -58,8 +59,7 @@ public class DeleteService : PageModel
 
         if (await IsOpenConnectionRequests())
         {
-            // TODO: Implement "There are open Connection Requests" Error Page
-            throw new NotImplementedException("\"There are open Connection Requests\" Error Page Required");
+            return RedirectToPage(OpenConnectionErrorUrl, new { serviceId = ServiceId });
         }
 
         // TODO: Mark Service as Defunct
@@ -73,8 +73,7 @@ public class DeleteService : PageModel
 
         if (await IsOpenConnectionRequests())
         {
-            // TODO: Implement "There are open Connection Requests" Error Page
-            throw new NotImplementedException("\"There are open Connection Requests\" Error Page Required");
+            return RedirectToPage(OpenConnectionErrorUrl, new { serviceId = ServiceId });
         }
 
         ServiceName = await GetServiceName();
