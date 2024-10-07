@@ -47,10 +47,10 @@ resource "azurerm_windows_function_app" "open_referral_function_app" {
   tags = local.tags
 }
 
-resource "azurerm_app_service_virtual_network_swift_connection" "open_referral_func_vnet_swift_connection" {
-  app_service_id = azurerm_windows_function_app.open_referral_function_app.id
-  subnet_id = azurerm_subnet.vnetint.id
-}
+#resource "azurerm_app_service_virtual_network_swift_connection" "open_referral_func_vnet_swift_connection" {
+#  app_service_id = azurerm_windows_function_app.open_referral_function_app.id
+#  subnet_id = azurerm_subnet.vnetint.id
+#}
 
 resource "azurerm_private_dns_a_record" "open_referral_mock_api_dns_a_record" {
   name = azurerm_windows_function_app.open_referral_function_app.name

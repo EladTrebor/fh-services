@@ -81,10 +81,10 @@ resource "azurerm_windows_web_app" "fh_report_api" {
 }
 
 # Swift Connection for Report API
-resource "azurerm_app_service_virtual_network_swift_connection" "fh_report_api" {
-  app_service_id = azurerm_windows_web_app.fh_report_api.id
-  subnet_id      = azurerm_subnet.vnetint.id
-}
+#resource "azurerm_app_service_virtual_network_swift_connection" "fh_report_api" {
+#  app_service_id = azurerm_windows_web_app.fh_report_api.id
+#  subnet_id      = azurerm_subnet.vnetint.id
+#}
 
 # SQL Server Database for Report API
 resource "azurerm_mssql_database" "report_serverless_db" {

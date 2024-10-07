@@ -249,10 +249,10 @@ resource "azurerm_windows_web_app" "fh_idam_maintenance_ui" {
 }
 
 # Swift Connection for IDAM Maintenance UI
-resource "azurerm_app_service_virtual_network_swift_connection" "fh_idam_maintenance_ui" {
-  app_service_id = azurerm_windows_web_app.fh_idam_maintenance_ui.id
-  subnet_id      = azurerm_subnet.vnetint.id
-}
+#resource "azurerm_app_service_virtual_network_swift_connection" "fh_idam_maintenance_ui" {
+#  app_service_id = azurerm_windows_web_app.fh_idam_maintenance_ui.id
+#  subnet_id      = azurerm_subnet.vnetint.id
+#}
 
 # Create Application Insights for Referral API 
 resource "azurerm_application_insights" "fh_referral_api_app_insights" {
@@ -347,10 +347,10 @@ resource "azurerm_windows_web_app" "fh_referral_api" {
 }
 
 # Swift Connection for Referral API
-resource "azurerm_app_service_virtual_network_swift_connection" "fh_referral_api" {
-  app_service_id = azurerm_windows_web_app.fh_referral_api.id
-  subnet_id      = azurerm_subnet.vnetint.id
-}
+#resource "azurerm_app_service_virtual_network_swift_connection" "fh_referral_api" {
+#  app_service_id = azurerm_windows_web_app.fh_referral_api.id
+#  subnet_id      = azurerm_subnet.vnetint.id
+#}
 
 # Create Application Insights for Referral UI
 resource "azurerm_application_insights" "fh_referral_ui_app_insights" {
@@ -422,10 +422,10 @@ resource "azurerm_windows_web_app" "fh_referral_ui" {
 }
 
 # Swift Connection for Referral UI
-resource "azurerm_app_service_virtual_network_swift_connection" "fh_referral_ui" {
-  app_service_id = azurerm_windows_web_app.fh_referral_ui.id
-  subnet_id      = azurerm_subnet.vnetint.id
-}
+#resource "azurerm_app_service_virtual_network_swift_connection" "fh_referral_ui" {
+#  app_service_id = azurerm_windows_web_app.fh_referral_ui.id
+#  subnet_id      = azurerm_subnet.vnetint.id
+#}
 
 
 # Create Application Insights for Service Directory API
@@ -525,10 +525,10 @@ resource "azurerm_windows_web_app" "fh_sd_api" {
 }
 
 # Swift Connection for Service Directory API
-resource "azurerm_app_service_virtual_network_swift_connection" "fh_sd_api" {
-  app_service_id = azurerm_windows_web_app.fh_sd_api.id
-  subnet_id      = azurerm_subnet.vnetint.id
-}
+#resource "azurerm_app_service_virtual_network_swift_connection" "fh_sd_api" {
+#  app_service_id = azurerm_windows_web_app.fh_sd_api.id
+#  subnet_id      = azurerm_subnet.vnetint.id
+#}
 
 # Create Application Insights for Service Directory UI
 resource "azurerm_application_insights" "fh_sd_ui_app_insights" {
@@ -597,10 +597,10 @@ resource "azurerm_windows_web_app" "fh_sd_ui" {
 }
 
 # Swift Connection for Service Directory UI
-resource "azurerm_app_service_virtual_network_swift_connection" "fh_sd_ui" {
-  app_service_id = azurerm_windows_web_app.fh_sd_ui.id
-  subnet_id      = azurerm_subnet.vnetint.id
-}
+#resource "azurerm_app_service_virtual_network_swift_connection" "fh_sd_ui" {
+#  app_service_id = azurerm_windows_web_app.fh_sd_ui.id
+#  subnet_id      = azurerm_subnet.vnetint.id
+#}
 
 # Create Application Insights for Service Directory Admin UI
 resource "azurerm_application_insights" "fh_sd_admin_ui_app_insights" {
@@ -672,10 +672,10 @@ resource "azurerm_windows_web_app" "fh_sd_admin_ui" {
 }
 
 # Swift Connection for Service Directory Admin UI
-resource "azurerm_app_service_virtual_network_swift_connection" "fh_sd_admin_ui" {
-  app_service_id = azurerm_windows_web_app.fh_sd_admin_ui.id
-  subnet_id      = azurerm_subnet.vnetint.id
-}
+#resource "azurerm_app_service_virtual_network_swift_connection" "fh_sd_admin_ui" {
+#  app_service_id = azurerm_windows_web_app.fh_sd_admin_ui.id
+#  subnet_id      = azurerm_subnet.vnetint.id
+#}
 
 # Create Application Insights for Referrals Dashboard UI
 resource "azurerm_application_insights" "fh_referral_dashboard_ui_app_insights" {
@@ -746,10 +746,10 @@ resource "azurerm_windows_web_app" "fh_referral_dashboard_ui" {
 }
 
 # Swift Connection for Referral Dashboard UI
-resource "azurerm_app_service_virtual_network_swift_connection" "fh_referral_dashboard_ui" {
-  app_service_id = azurerm_windows_web_app.fh_referral_dashboard_ui.id
-  subnet_id      = azurerm_subnet.vnetint.id
-}
+#resource "azurerm_app_service_virtual_network_swift_connection" "fh_referral_dashboard_ui" {
+#  app_service_id = azurerm_windows_web_app.fh_referral_dashboard_ui.id
+#  subnet_id      = azurerm_subnet.vnetint.id
+#}
 
 # Create Application Insights for IDAM API 
 resource "azurerm_application_insights" "fh_idam_api_app_insights" {
@@ -841,10 +841,10 @@ resource "azurerm_windows_web_app" "fh_idam_api" {
 }
 
 # Swift Connection for IDAM API
-resource "azurerm_app_service_virtual_network_swift_connection" "fh_idam_api" {
-  app_service_id = azurerm_windows_web_app.fh_idam_api.id
-  subnet_id      = azurerm_subnet.vnetint.id
-}
+#resource "azurerm_app_service_virtual_network_swift_connection" "fh_idam_api" {
+#  app_service_id = azurerm_windows_web_app.fh_idam_api.id
+#  subnet_id      = azurerm_subnet.vnetint.id
+#}
 
 # Create Application Insights for Notification API 
 resource "azurerm_application_insights" "fh_notification_api_app_insights" {
@@ -924,10 +924,10 @@ resource "azurerm_windows_web_app" "fh_notification_api" {
 }
 
 # Swift Connection for Notification API
-resource "azurerm_app_service_virtual_network_swift_connection" "fh_notification_api" {
-  app_service_id = azurerm_windows_web_app.fh_notification_api.id
-  subnet_id      = azurerm_subnet.vnetint.id
-}
+#resource "azurerm_app_service_virtual_network_swift_connection" "fh_notification_api" {
+#  app_service_id = azurerm_windows_web_app.fh_notification_api.id
+#  subnet_id      = azurerm_subnet.vnetint.id
+#}
 
 # Create App Service for open referral API
 resource "azurerm_windows_web_app" "open_referral_mock_api_web_app" {
@@ -963,10 +963,10 @@ resource "azurerm_windows_web_app" "open_referral_mock_api_web_app" {
 }
 
 # Swift Connection for open referral API
-resource "azurerm_app_service_virtual_network_swift_connection" "open_referral_mock_api_vnet_swift_connection" {
-  app_service_id = azurerm_windows_web_app.open_referral_mock_api_web_app.id
-  subnet_id = azurerm_subnet.vnetint.id
-}
+#resource "azurerm_app_service_virtual_network_swift_connection" "open_referral_mock_api_vnet_swift_connection" {
+#  app_service_id = azurerm_windows_web_app.open_referral_mock_api_web_app.id
+#  subnet_id = azurerm_subnet.vnetint.id
+#}
 
 # WAF Policies
 resource "azurerm_web_application_firewall_policy" "ref_ui_appgwwafp" {
