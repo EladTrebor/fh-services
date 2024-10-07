@@ -15,19 +15,17 @@ namespace FamilyHubs.ServiceDirectory.Admin.Web.UnitTests.Areas.AccountAdmin.Man
         }
             
         [Fact]
-        public async Task OnGet_UserNameRetrivedFromCache()
+        public async Task OnGet_UserNameRetrievedFromCache()
         {
             //  Arrange            
             const string userName = "TestUser";
-            const bool isDeleted = true;
-            _mockCacheService.RetrieveString(Arg.Any<string>()).Returns(Task.FromResult(userName));
+            _mockCacheService.RetrieveString("DeleteUserName").Returns(Task.FromResult(userName));
             var sut = new DeleteUserConfirmationModel( _mockCacheService);
 
             //  Act
-            await sut.OnGet(isDeleted);
+            await sut.OnGet(isDeleted:true);
 
             //  Assert
-            await _mockCacheService.Received(1).RetrieveString("UserName");
             Assert.Equal(userName, sut.UserName);
         }               
     }
