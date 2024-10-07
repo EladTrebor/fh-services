@@ -5,7 +5,6 @@ using FamilyHubs.ServiceDirectory.Admin.Web.Areas.AccountAdmin.Pages.ManagePermi
 using FamilyHubs.SharedKernel.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Moq;
 using NSubstitute;
 using Xunit;
 
@@ -31,7 +30,7 @@ namespace FamilyHubs.ServiceDirectory.Admin.Web.UnitTests.Areas.AccountAdmin.Man
             {
                 Claims = [new AccountClaimDto { Name = "role", Value = "LaManager" }]
             };
-            _mockIdamClient.GetAccountById(It.IsAny<long>()).Returns(account);
+            _mockIdamClient.GetAccountById(Arg.Any<long>()).Returns(account);
             var sut = new EditRolesModel(_mockIdamClient, _mockEmailService);
 
             //  Act
@@ -50,7 +49,7 @@ namespace FamilyHubs.ServiceDirectory.Admin.Web.UnitTests.Areas.AccountAdmin.Man
             {
                 Claims = [new AccountClaimDto { Name = "role", Value = "LaManager" }]
             };
-            _mockIdamClient.GetAccountById(It.IsAny<long>()).Returns(account);
+            _mockIdamClient.GetAccountById(Arg.Any<long>()).Returns(account);
             var sut = new EditRolesModel(_mockIdamClient, _mockEmailService);
 
             //  Act
@@ -74,7 +73,7 @@ namespace FamilyHubs.ServiceDirectory.Admin.Web.UnitTests.Areas.AccountAdmin.Man
             {
                 Claims = [new AccountClaimDto { Name = "role", Value = role }]
             };
-            _mockIdamClient.GetAccountById(It.IsAny<long>()).Returns(account);
+            _mockIdamClient.GetAccountById(Arg.Any<long>()).Returns(account);
             var sut = new EditRolesModel(_mockIdamClient, _mockEmailService);
 
             //  Act
@@ -102,7 +101,7 @@ namespace FamilyHubs.ServiceDirectory.Admin.Web.UnitTests.Areas.AccountAdmin.Man
             {
                 Claims = [new AccountClaimDto { Name = "role", Value = role }]
             };
-            _mockIdamClient.GetAccountById(It.IsAny<long>()).Returns(account);
+            _mockIdamClient.GetAccountById(Arg.Any<long>()).Returns(account);
             var sut = new EditRolesModel(_mockIdamClient, _mockEmailService);
 
             //  Act
@@ -121,7 +120,7 @@ namespace FamilyHubs.ServiceDirectory.Admin.Web.UnitTests.Areas.AccountAdmin.Man
             {
                 Claims = [new AccountClaimDto { Name = "role", Value = "LaManager" }]
             };
-            _mockIdamClient.GetAccountById(It.IsAny<long>()).Returns(account);
+            _mockIdamClient.GetAccountById(Arg.Any<long>()).Returns(account);
             var sut = new EditRolesModel(_mockIdamClient, _mockEmailService);
 
             //  Act
@@ -140,7 +139,7 @@ namespace FamilyHubs.ServiceDirectory.Admin.Web.UnitTests.Areas.AccountAdmin.Man
             {
                 Claims = [new AccountClaimDto { Name = "role", Value = "LaManager" }]
             };
-            _mockIdamClient.GetAccountById(It.IsAny<long>()).Returns(account);
+            _mockIdamClient.GetAccountById(Arg.Any<long>()).Returns(account);
             var sut = new EditRolesModel(_mockIdamClient, _mockEmailService)
             {
                 LaManager = true
