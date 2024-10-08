@@ -15,8 +15,8 @@ public class WhenUsingOrganisationClientService : BaseClientService
         //Arrange
         var taxonomies = new List<TaxonomyDto>
         {
-            new TaxonomyDto { Id = 1, Name = "Activities, clubs and groups", TaxonomyType = TaxonomyType.ServiceCategory },
-            new TaxonomyDto { Name = "Activities", TaxonomyType = TaxonomyType.ServiceCategory, ParentId = 1 }
+            new() { Id = 1, Name = "Activities, clubs and groups", TaxonomyType = TaxonomyType.ServiceCategory },
+            new() { Name = "Activities", TaxonomyType = TaxonomyType.ServiceCategory, ParentId = 1 }
         };
 
         var paginatedList = new PaginatedList<TaxonomyDto>(taxonomies, taxonomies.Count, 1, 1);
