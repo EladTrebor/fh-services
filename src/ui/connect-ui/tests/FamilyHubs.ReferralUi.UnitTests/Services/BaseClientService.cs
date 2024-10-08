@@ -8,16 +8,6 @@ namespace FamilyHubs.ReferralUi.UnitTests.Services;
 
 public class BaseClientService
 {
-
-    protected OrganisationDetailsDto GetTestCountyCouncilDto()
-    {
-        var bristolCountyCouncil = new OrganisationDetailsDto
-        {
-            OrganisationType = OrganisationType.NotSet, Name = "Unit Test County Council", Description = "Unit Test County Council", AdminAreaCode = ""
-        };
-        return bristolCountyCouncil;
-    }
-
     public static ServiceDto GetTestCountyCouncilServicesDto(long parentId)
     {
         ServiceDto service = new()
@@ -35,7 +25,7 @@ public class BaseClientService
             CanFamilyChooseDeliveryLocation = false,
             ServiceAreas = new List<ServiceAreaDto>()
             {
-                new ServiceAreaDto
+                new()
                 {
                     Id = 2,
                     ServiceAreaName = "National",
@@ -46,7 +36,7 @@ public class BaseClientService
             },
             Contacts = new List<ContactDto>()
             {
-                new ContactDto
+                new()
                 {
                     Id = 3,
                     ServiceId = 1,
@@ -60,7 +50,7 @@ public class BaseClientService
             },
             Eligibilities = new List<EligibilityDto>()
             {
-                new EligibilityDto
+                new()
                 {
                     Id = 4,
                     ServiceId = 1,
@@ -72,7 +62,7 @@ public class BaseClientService
             CostOptions = new List<CostOptionDto>(),
             Languages = new List<LanguageDto>()
             {
-                new LanguageDto
+                new()
                 {
                     Id = 5,
                     ServiceId = 1,
@@ -84,7 +74,7 @@ public class BaseClientService
             Schedules = new List<ScheduleDto>(),
             Locations = new List<LocationDto>()
             {
-                new LocationDto
+                new()
                 {
                     Id = 6,
                     Schedules = new List<ScheduleDto>(),
@@ -104,7 +94,7 @@ public class BaseClientService
             Fundings = new List<FundingDto>(),
             Taxonomies = new List<TaxonomyDto>()
             {
-                new TaxonomyDto
+                new()
                 {
                     Id = 7,
                     Name = "UnitTest bccprimaryservicetype:38",
