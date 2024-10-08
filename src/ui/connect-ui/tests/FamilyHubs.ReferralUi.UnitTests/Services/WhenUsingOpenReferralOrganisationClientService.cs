@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace FamilyHubs.ReferralUi.UnitTests.Services;
 
-public class WhenUsingOrganisationClientService : BaseClientService
+public class WhenUsingOrganisationClientService
 {
     [Fact]
     public async Task ThenGetCategories()
