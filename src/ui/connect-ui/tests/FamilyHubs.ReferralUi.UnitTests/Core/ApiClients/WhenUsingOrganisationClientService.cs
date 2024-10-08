@@ -6,6 +6,7 @@ using FamilyHubs.ServiceDirectory.Shared.Enums;
 using FluentAssertions;
 using System.Text;
 using System.Text.Json;
+using FamilyHubs.ReferralUi.UnitTests.Helpers;
 
 namespace FamilyHubs.ReferralUi.UnitTests.Core.ApiClients;
 
@@ -19,7 +20,7 @@ public class WhenUsingOrganisationClientService
         var expectedPaginatedList = new PaginatedList<TaxonomyDto>(listTaxonomies, listTaxonomies.Count, 1, listTaxonomies.Count);
         var jsonString = JsonSerializer.Serialize(expectedPaginatedList);
         
-        var httpClient = ClientHelper.GetMockClient(jsonString);
+        var httpClient = TestHelpers.GetMockClient(jsonString);
 
         var organisationClientService = new OrganisationClientService(httpClient);
 
@@ -38,7 +39,7 @@ public class WhenUsingOrganisationClientService
         var listServices = new List<ServiceDto> { ClientHelper.GetTestCountyCouncilServicesDto() };
         var expectedPaginatedList = new PaginatedList<ServiceDto>(listServices, listServices.Count, 1, listServices.Count);
         var jsonString = JsonSerializer.Serialize(expectedPaginatedList);
-        var httpClient = ClientHelper.GetMockClient(jsonString);
+        var httpClient = TestHelpers.GetMockClient(jsonString);
 
         var organisationClientService = new OrganisationClientService(httpClient);
 
@@ -68,7 +69,7 @@ public class WhenUsingOrganisationClientService
         //Arrange
         var expectedService = ClientHelper.GetTestCountyCouncilServicesDto();
         var jsonString = JsonSerializer.Serialize(expectedService);
-        var httpClient = ClientHelper.GetMockClient(jsonString);
+        var httpClient = TestHelpers.GetMockClient(jsonString);
 
         var organisationClientService = new OrganisationClientService(httpClient);
 
@@ -86,7 +87,7 @@ public class WhenUsingOrganisationClientService
         //Arrange
         var expectedOrganisation = ClientHelper.GetTestCountyCouncilWithoutAnyServices();
         var jsonString = JsonSerializer.Serialize(expectedOrganisation);
-        var httpClient = ClientHelper.GetMockClient(jsonString);
+        var httpClient = TestHelpers.GetMockClient(jsonString);
 
         var organisationClientService = new OrganisationClientService(httpClient);
 

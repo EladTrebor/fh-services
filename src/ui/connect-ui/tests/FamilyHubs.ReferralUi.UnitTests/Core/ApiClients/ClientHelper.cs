@@ -8,35 +8,6 @@ namespace FamilyHubs.ReferralUi.UnitTests.Core.ApiClients;
 
 public static class ClientHelper
 {
-    
-    public static HttpClient GetMockClient(string content, HttpStatusCode statusCode = HttpStatusCode.OK)
-    {
-        var mockHttpMessageHandler = new CustomHttpMessageHandler(content, statusCode);
-
-        var client = new HttpClient(mockHttpMessageHandler)
-        {
-            BaseAddress = new Uri("https://localhost")
-        };
-        return client;
-    }
-    
-    /// <summary>
-    /// Custom HttpMessageHandler to return a response message with the content
-    /// </summary>
-    private class CustomHttpMessageHandler(string content, HttpStatusCode statusCode) : HttpMessageHandler
-    {
-        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-        {
-            var responseMessage = new HttpResponseMessage(statusCode)
-            {
-                Content = new StringContent(content),
-                RequestMessage = request
-            };
-        
-            return Task.FromResult(responseMessage);
-        }
-    }
-
     public static List<TaxonomyDto> GetTaxonomies()
     {
         var activity = new TaxonomyDto { Id = 1, Name = "Activities, clubs and groups", TaxonomyType = TaxonomyType.ServiceCategory, ParentId = null };

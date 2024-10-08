@@ -2,6 +2,7 @@
 using FamilyHubs.Referral.Core.ApiClients;
 using FluentAssertions;
 using System.Text.Json;
+using FamilyHubs.ReferralUi.UnitTests.Helpers;
 using NSubstitute;
 
 namespace FamilyHubs.ReferralUi.UnitTests.Core.ApiClients;
@@ -21,7 +22,7 @@ public class WhenUsingIdamsClient
         var expectedListAccounts = ClientHelper.GetAccountList();
         var jsonString = JsonSerializer.Serialize(expectedListAccounts);
 
-        var httpClient = ClientHelper.GetMockClient(jsonString, HttpStatusCode.Accepted);
+        var httpClient = TestHelpers.GetMockClient(jsonString, HttpStatusCode.Accepted);
 
         _mockClientFactory.CreateClient(Arg.Any<string>()).Returns(httpClient);
 
@@ -38,7 +39,7 @@ public class WhenUsingIdamsClient
     public async Task ThenThrowsIdamsClientException_OnBadRequest()
     {
         // Arrange
-        var httpClient = ClientHelper.GetMockClient("", HttpStatusCode.BadRequest);
+        var httpClient = TestHelpers.GetMockClient("", HttpStatusCode.BadRequest);
 
         _mockClientFactory.CreateClient(Arg.Any<string>()).Returns(httpClient);
 

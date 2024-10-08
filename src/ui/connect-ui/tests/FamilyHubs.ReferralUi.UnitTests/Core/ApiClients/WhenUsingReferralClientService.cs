@@ -5,6 +5,7 @@ using System.Text.Json;
 using FamilyHubs.ReferralService.Shared.Dto.CreateUpdate;
 using FamilyHubs.ReferralService.Shared.Dto.Metrics;
 using FamilyHubs.ReferralService.Shared.Models;
+using FamilyHubs.ReferralUi.UnitTests.Helpers;
 
 namespace FamilyHubs.ReferralUi.UnitTests.Core.ApiClients;
 
@@ -30,7 +31,7 @@ public class WhenUsingReferralClientService
             OrganisationId = 456
         });
 
-        _httpClient = ClientHelper.GetMockClient(jsonString);
+        _httpClient = TestHelpers.GetMockClient(jsonString);
         _referralClientService = new ReferralClientService(_httpClient);
 
         // Act
@@ -44,7 +45,7 @@ public class WhenUsingReferralClientService
     public async Task CreateReferral_WithInvalidData_ThrowsReferralClientServiceException()
     {
         // Arrange
-        _httpClient = ClientHelper.GetMockClient("Invalid request", HttpStatusCode.BadRequest);
+        _httpClient = TestHelpers.GetMockClient("Invalid request", HttpStatusCode.BadRequest);
         _referralClientService = new ReferralClientService(_httpClient);
 
         // Act and Assert

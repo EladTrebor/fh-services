@@ -1,4 +1,5 @@
 ﻿using FamilyHubs.Referral.Core.ApiClients;
+using FamilyHubs.ReferralUi.UnitTests.Helpers;
 using FamilyHubs.ServiceDirectory.Shared.Dto;
 using FamilyHubs.ServiceDirectory.Shared.Enums;
 using FamilyHubs.ServiceDirectory.Shared.Models;
@@ -22,7 +23,7 @@ public class WhenUsingOrganisationClientService : BaseClientService
         var paginatedList = new PaginatedList<TaxonomyDto>(taxonomies, taxonomies.Count, 1, 1);
 
         var json = JsonConvert.SerializeObject(paginatedList);
-        var mockClient = GetMockClient(json);
+        var mockClient = TestHelpers.GetMockClient(json);
         var organisationClientService = new OrganisationClientService(mockClient);
 
         //Act
