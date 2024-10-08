@@ -16,7 +16,7 @@ on:
           - 'Development'
           - 'Test'
           - 'Test2'
-          - 'PreProduction'
+          - 'Pre-production'
           - 'Production'
 
 permissions:
