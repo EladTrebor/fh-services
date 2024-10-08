@@ -12,7 +12,7 @@ on:
           - 'Development'
           - 'Test'
           - 'Test2'
-          - 'Pre-production'
+          - 'PreProduction'
           - 'Production'
       action:
         description: Test the planned changes or plan and apply the changes
