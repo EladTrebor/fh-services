@@ -1,8 +1,5 @@
-﻿using System.Net;
-using FamilyHubs.ServiceDirectory.Shared.Dto;
+﻿using FamilyHubs.ServiceDirectory.Shared.Dto;
 using FamilyHubs.ServiceDirectory.Shared.Enums;
-using Moq;
-using Moq.Protected;
 
 namespace FamilyHubs.ReferralUi.UnitTests.Services;
 
