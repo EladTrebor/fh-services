@@ -1,13 +1,8 @@
 ﻿using FamilyHubs.Referral.Core.ApiClients;
-using FamilyHubs.Referral.Core.Models;
 using FamilyHubs.ReferralService.Shared.Dto;
 using FamilyHubs.ServiceDirectory.Shared.Dto;
 using FamilyHubs.ServiceDirectory.Shared.Enums;
-using Moq;
-using Moq.Protected;
 using System.Net;
-using System.Net.Http;
-using NSubstitute;
 
 namespace FamilyHubs.ReferralUi.UnitTests.Core.ApiClients;
 
@@ -34,7 +29,8 @@ public static class ClientHelper
         {
             var responseMessage = new HttpResponseMessage(statusCode)
             {
-                Content = new StringContent(content)
+                Content = new StringContent(content),
+                RequestMessage = request
             };
         
             return Task.FromResult(responseMessage);
