@@ -20,9 +20,6 @@ public class WhenUsingOrganisationClientService
         var jsonString = JsonSerializer.Serialize(expectedPaginatedList);
         
         var httpClient = ClientHelper.GetMockClient(jsonString);
-        httpClient.DefaultRequestHeaders.Clear();
-        httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer token");
-        httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
 
         var organisationClientService = new OrganisationClientService(httpClient);
 
@@ -42,9 +39,6 @@ public class WhenUsingOrganisationClientService
         var expectedPaginatedList = new PaginatedList<ServiceDto>(listServices, listServices.Count, 1, listServices.Count);
         var jsonString = JsonSerializer.Serialize(expectedPaginatedList);
         var httpClient = ClientHelper.GetMockClient(jsonString);
-        httpClient.DefaultRequestHeaders.Clear();
-        httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer token");
-        httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
 
         var organisationClientService = new OrganisationClientService(httpClient);
 
@@ -75,9 +69,6 @@ public class WhenUsingOrganisationClientService
         var expectedService = ClientHelper.GetTestCountyCouncilServicesDto();
         var jsonString = JsonSerializer.Serialize(expectedService);
         var httpClient = ClientHelper.GetMockClient(jsonString);
-        httpClient.DefaultRequestHeaders.Clear();
-        httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer token");
-        httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
 
         var organisationClientService = new OrganisationClientService(httpClient);
 
@@ -96,9 +87,6 @@ public class WhenUsingOrganisationClientService
         var expectedOrganisation = ClientHelper.GetTestCountyCouncilWithoutAnyServices();
         var jsonString = JsonSerializer.Serialize(expectedOrganisation);
         var httpClient = ClientHelper.GetMockClient(jsonString);
-        httpClient.DefaultRequestHeaders.Clear();
-        httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer token");
-        httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
 
         var organisationClientService = new OrganisationClientService(httpClient);
 
