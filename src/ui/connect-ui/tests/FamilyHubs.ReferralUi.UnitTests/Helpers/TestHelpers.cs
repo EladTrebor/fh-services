@@ -2,7 +2,7 @@ using System.Net;
 
 namespace FamilyHubs.ReferralUi.UnitTests.Helpers;
 
-public class TestHelpers
+public static class TestHelpers
 {
     public static HttpClient GetMockClient(string content, HttpStatusCode statusCode = HttpStatusCode.OK)
     {
