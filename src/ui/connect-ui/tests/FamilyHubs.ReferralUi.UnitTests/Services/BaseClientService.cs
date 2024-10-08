@@ -8,6 +8,11 @@ namespace FamilyHubs.ReferralUi.UnitTests.Services;
 
 public class BaseClientService
 {
+    /// <summary>
+    /// Returns a test County Council Service DTO, no fields are null
+    /// </summary>
+    /// <param name="parentId"></param>
+    /// <returns></returns>
     public static ServiceDto GetTestCountyCouncilServicesDto(long parentId)
     {
         ServiceDto service = new()
@@ -23,7 +28,7 @@ public class BaseClientService
             Status = ServiceStatusType.Active,
             Fees = null,
             CanFamilyChooseDeliveryLocation = false,
-            ServiceAreas = new List<ServiceAreaDto>()
+            ServiceAreas = new List<ServiceAreaDto>
             {
                 new()
                 {
@@ -34,7 +39,7 @@ public class BaseClientService
 
                 }
             },
-            Contacts = new List<ContactDto>()
+            Contacts = new List<ContactDto>
             {
                 new()
                 {
@@ -48,7 +53,7 @@ public class BaseClientService
                     Url = "www.google.com"
                 }
             },
-            Eligibilities = new List<EligibilityDto>()
+            Eligibilities = new List<EligibilityDto>
             {
                 new()
                 {
@@ -60,7 +65,7 @@ public class BaseClientService
                 }
             },
             CostOptions = new List<CostOptionDto>(),
-            Languages = new List<LanguageDto>()
+            Languages = new List<LanguageDto>
             {
                 new()
                 {
@@ -72,7 +77,7 @@ public class BaseClientService
             },
             ServiceDeliveries = new List<ServiceDeliveryDto>(),
             Schedules = new List<ScheduleDto>(),
-            Locations = new List<LocationDto>()
+            Locations = new List<LocationDto>
             {
                 new()
                 {
@@ -92,7 +97,7 @@ public class BaseClientService
                 }
             },
             Fundings = new List<FundingDto>(),
-            Taxonomies = new List<TaxonomyDto>()
+            Taxonomies = new List<TaxonomyDto>
             {
                 new()
                 {
