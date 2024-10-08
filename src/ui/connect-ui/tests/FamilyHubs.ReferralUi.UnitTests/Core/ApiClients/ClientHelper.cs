@@ -7,33 +7,38 @@ using Moq;
 using Moq.Protected;
 using System.Net;
 using System.Net.Http;
+using NSubstitute;
 
 namespace FamilyHubs.ReferralUi.UnitTests.Core.ApiClients;
 
 public static class ClientHelper
 {
-    public static HttpClient GetMockClient<T>(T content, bool badRequest = false)
+    
+    public static HttpClient GetMockClient(string content, HttpStatusCode statusCode = HttpStatusCode.OK)
     {
-        ArgumentNullException.ThrowIfNull(content);
-        var mockHttpMessageHandler = new Mock<HttpMessageHandler>();
+        var mockHttpMessageHandler = new CustomHttpMessageHandler(content, statusCode);
 
-        HttpStatusCode httpStatusCode = HttpStatusCode.OK;
-        if (badRequest)
+        var client = new HttpClient(mockHttpMessageHandler)
         {
-            httpStatusCode = HttpStatusCode.BadRequest;
-        }
-
-        mockHttpMessageHandler.Protected()
-            .Setup<Task<HttpResponseMessage>>("SendAsync", ItExpr.IsAny<HttpRequestMessage>(), ItExpr.IsAny<CancellationToken>())
-            .ReturnsAsync(new HttpResponseMessage
-            {
-                Content = new StringContent(content.ToString() ?? string.Empty),
-                StatusCode = httpStatusCode,
-            });
-
-        var client = new HttpClient(mockHttpMessageHandler.Object);
-        client.BaseAddress = new Uri("https://localhost");
+            BaseAddress = new Uri("https://localhost")
+        };
         return client;
+    }
+    
+    /// <summary>
+    /// Custom HttpMessageHandler to return a response message with the content
+    /// </summary>
+    private class CustomHttpMessageHandler(string content, HttpStatusCode statusCode) : HttpMessageHandler
+    {
+        protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        {
+            var responseMessage = new HttpResponseMessage(statusCode)
+            {
+                Content = new StringContent(content)
+            };
+        
+            return Task.FromResult(responseMessage);
+        }
     }
 
     public static List<TaxonomyDto> GetTaxonomies()
