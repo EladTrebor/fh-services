@@ -359,14 +359,15 @@ public static class ClientHelper
 
     public static List<AccountDto> GetAccountList() 
     {
-        return new List<AccountDto>
-        {
-            new AccountDto 
+        return
+        [
+            new AccountDto
             {
                 Id = 1,
                 Name = "Test User1",
                 Email = "TestUser1@email.com"
             },
+
 
             new AccountDto
             {
@@ -374,6 +375,6 @@ public static class ClientHelper
                 Name = "Test User2",
                 Email = "TestUser2@email.com"
             }
-        };
+        ];
     }
 }
