@@ -1,6 +1,7 @@
 ﻿using FamilyHubs.Notification.Api.Client;
 using FamilyHubs.Notification.Api.Client.Templates;
 using FamilyHubs.RequestForSupport.Core.ApiClients;
+using FamilyHubs.RequestForSupport.UnitTests.Helpers;
 using FamilyHubs.RequestForSupport.Web.Errors;
 using FamilyHubs.RequestForSupport.Web.Pages.Vcs;
 using FamilyHubs.SharedKernel.Razor.FamilyHubsUi.Options;
@@ -51,7 +52,7 @@ public class WhenUsingTheVcsDetailsPage : BaseWhenUsingPage
         await _pageModel.OnGet(1, []);
 
         //Assert
-        _pageModel.Referral.Should().BeEquivalentTo(WhenUsingTheVcsDashboard.GetReferralDto());
+        _pageModel.Referral.Should().BeEquivalentTo(TestHelpers.GetMockReferralDto());
     }
 
     [Fact]

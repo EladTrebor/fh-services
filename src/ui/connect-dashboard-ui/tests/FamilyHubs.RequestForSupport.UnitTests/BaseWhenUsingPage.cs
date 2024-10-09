@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Routing;
 using System.Security.Claims;
 using System.Security.Principal;
+using FamilyHubs.RequestForSupport.UnitTests.Helpers;
 using NSubstitute;
 
 namespace FamilyHubs.RequestForSupport.UnitTests;
@@ -33,7 +34,7 @@ public abstract class BaseWhenUsingPage
     protected PageContext GetPageContext()
     {
         MockReferralClientService.GetReferralById(Arg.Any<long>(), Arg.Any<CancellationToken>())
-            .Returns(WhenUsingTheVcsDashboard.GetReferralDto());
+            .Returns(TestHelpers.GetMockReferralDto());
 
         List<ReferralDto> list = [GetReferralDto()];
         var pagelist = new PaginatedList<ReferralDto>(list, 1, 1, 1);
