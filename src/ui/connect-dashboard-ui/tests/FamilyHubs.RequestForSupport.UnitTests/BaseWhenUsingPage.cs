@@ -20,13 +20,14 @@ public abstract class BaseWhenUsingPage
 {
     protected readonly IReferralClientService MockReferralClientService;
     protected readonly ITempDataDictionary MockTempDataDictionary;
+    protected const string ReasonForDecliningTempDataValue = "example reason"; 
 
     protected BaseWhenUsingPage()
     {
         MockReferralClientService = Substitute.For<IReferralClientService>();
 
         MockTempDataDictionary = Substitute.For<ITempDataDictionary>();
-        MockTempDataDictionary["ReasonForDeclining"].Returns("example reason");
+        MockTempDataDictionary["ReasonForDeclining"].Returns(ReasonForDecliningTempDataValue);
     }
 
     protected PageContext GetPageContext()
