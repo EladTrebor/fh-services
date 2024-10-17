@@ -17,14 +17,13 @@ jobs:
   build_and_test:
     name: Build Project & Run Tests
     runs-on: ${{ inputs.runs_on }}
-    defaults:
-      run:
-        working-directory: src/${{ inputs.working_directory }}
+    #defaults:
+    #  run:
+    #    working-directory: src/${{ inputs.working_directory }}
 
     steps:
       - name: Install Pre-requisites
         run: |
-          echo pwd
           sudo apt-get update
           sudo apt-get install -y libsqlite3-mod-spatialite
         
