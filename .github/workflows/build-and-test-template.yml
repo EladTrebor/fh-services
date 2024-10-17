@@ -14,6 +14,16 @@ on:
         type: string
 
 jobs:
+  pre_requisites:
+    name: Install Pre-requisites
+    runs-on: ${{ inputs.runs_on }}
+    
+    steps:
+      - name: Install Spatialite
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libsqlite3-mod-spatialite
+          
   build_and_test:
     name: Build Project & Run Tests
     runs-on: ${{ inputs.runs_on }}
@@ -22,10 +32,10 @@ jobs:
         working-directory: src/${{ inputs.working_directory }}
 
     steps:
-      - name: Install Pre-requisites
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libsqlite3-mod-spatialite
+    #  - name: Install Pre-requisites
+    #    run: |
+    #      sudo apt-get update
+    #      sudo apt-get install -y libsqlite3-mod-spatialite
         
       - name: Checkout Repository
         uses: actions/checkout@v4
