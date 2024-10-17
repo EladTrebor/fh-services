@@ -58,4 +58,4 @@ jobs:
       - name: Test Project
         working-directory: src/${{ inputs.working_directory }}
         shell: bash
-        run: dotnet test --no-build --no-restore --verbosity minimal
+        run: dotnet test --no-build --no-restore --verbosity detailed
