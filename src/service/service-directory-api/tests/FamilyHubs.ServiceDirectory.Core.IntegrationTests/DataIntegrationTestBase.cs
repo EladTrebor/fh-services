@@ -138,6 +138,7 @@ public abstract class DataIntegrationTestBase : IDisposable, IAsyncDisposable
     {
         TestDbContext.Database.EnsureDeleted();
         TestDbContext.Database.EnsureCreated();
+        TestDbContext.Database.ExecuteSqlRaw("SELECT load_extension('mod_spatialite')");
         TestDbContext.Database.ExecuteSqlRaw($"UPDATE geometry_columns SET srid = {GeoPoint.WGS84} WHERE f_table_name = 'locations';");
 
         var organisationSeedData = new OrganisationSeedData(TestDbContext);
