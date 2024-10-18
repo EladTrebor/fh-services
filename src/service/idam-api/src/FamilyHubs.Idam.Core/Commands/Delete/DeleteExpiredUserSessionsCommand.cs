@@ -40,7 +40,7 @@ public class DeleteExpiredUserSessionsCommandHandler : IRequestHandler<DeleteExp
 
             _logger.LogInformation("Found: {CountExpired} expired sessions.", entities.Count);
 
-            if (entities.Count != 0)
+            if (entities.Count > 0)
             {
                 _dbContext.UserSessions.RemoveRange(entities);
 
