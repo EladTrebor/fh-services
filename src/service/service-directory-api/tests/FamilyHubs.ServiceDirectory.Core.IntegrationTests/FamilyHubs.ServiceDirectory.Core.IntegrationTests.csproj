@@ -6,14 +6,6 @@
 	<NuGetAuditMode>direct</NuGetAuditMode>
     <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
   </PropertyGroup>
-
-  <PropertyGroup>
-    <IsLinux Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true'">true</IsLinux>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(IsLinux)'=='true'">
-    <DefineConstants>Linux</DefineConstants>
-  </PropertyGroup>
   
   <ItemGroup>
     <PackageReference Include="AutoFixture" />
@@ -34,14 +26,6 @@
     </PackageReference>
   </ItemGroup>
   
-  <Choose>
-    <When Condition="'$(IsLinux)'=='true'">
-      <ItemGroup>
-        <PackageReference Include="SQLitePCLRaw.provider.sqlite3" />
-      </ItemGroup>
-    </When>
-  </Choose>
-
   <ItemGroup>
     <ProjectReference Include="..\..\src\FamilyHubs.ServiceDirectory.Core\FamilyHubs.ServiceDirectory.Core.csproj" />
   </ItemGroup>

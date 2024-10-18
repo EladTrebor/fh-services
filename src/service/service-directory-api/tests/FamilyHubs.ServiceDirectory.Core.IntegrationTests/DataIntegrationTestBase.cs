@@ -151,9 +151,6 @@ public abstract class DataIntegrationTestBase : IDisposable, IAsyncDisposable
 
     private ServiceProvider CreateNewServiceProvider()
     {
-#if Linux
-        SQLitePCL.raw.SetProvider(new SQLitePCL.SQLite3Provider_sqlite3());
-#endif        
         var serviceDirectoryConnection = $"Data Source=sd-{Interlocked.Increment(ref _dbSuffix)}.db;Mode=ReadWriteCreate;Cache=Shared;Foreign Keys=True;Recursive Triggers=True;Default Timeout=30;Pooling=True";
 
         var auditableEntitySaveChangesInterceptor = new AuditableEntitySaveChangesInterceptor(_httpContextAccessor);
