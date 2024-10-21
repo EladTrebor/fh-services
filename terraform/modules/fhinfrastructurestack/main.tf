@@ -816,7 +816,7 @@ resource "azurerm_web_application_firewall_policy" "ref_ui_appgwwafp" {
     }
   }
   policy_settings {
-    mode = "Detection"
+    mode = "Prevention"
   }
   tags = local.tags
 }
@@ -902,7 +902,7 @@ resource "azurerm_web_application_firewall_policy" "sd_admin_ui_appgwwafp" {
     }
   }
   policy_settings {
-    mode = "Detection"
+    mode = "Prevention"
   }
   tags = local.tags
 }
@@ -988,7 +988,7 @@ resource "azurerm_web_application_firewall_policy" "sd_ui_appgwwafp" {
     }
   }
   policy_settings {
-    mode = "Detection"
+    mode = "Prevention"
   }
   tags = local.tags
 }
