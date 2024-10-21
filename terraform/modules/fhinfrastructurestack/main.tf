@@ -996,7 +996,7 @@ resource "azurerm_web_application_firewall_policy" "sd_ui_appgwwafp" {
 # Application Gateways
 resource "azurerm_application_gateway" "ref_ui_app_gateway" {
   name                = "${var.prefix}-fh-appgw-referral-ui"
-  firewall_policy_id  =  azurerm_web_application_firewall_policy.ref_ui_appgwwafp.id
+  #firewall_policy_id  =  azurerm_web_application_firewall_policy.ref_ui_appgwwafp.id
   resource_group_name = local.resource_group_name
   location            = var.location
   tags = local.tags
@@ -1210,7 +1210,7 @@ resource "azurerm_application_gateway" "ref_ui_app_gateway" {
 
 resource "azurerm_application_gateway" "sd_admin_ui_app_gateway" {
   name                = "${var.prefix}-fh-appgw-sd-admin-ui"
-  firewall_policy_id  =  azurerm_web_application_firewall_policy.sd_admin_ui_appgwwafp.id
+  #firewall_policy_id  =  azurerm_web_application_firewall_policy.sd_admin_ui_appgwwafp.id
   resource_group_name = local.resource_group_name
   location            = var.location
   tags = local.tags
@@ -1373,7 +1373,7 @@ resource "azurerm_application_gateway" "sd_admin_ui_app_gateway" {
 
 resource "azurerm_application_gateway" "sd_ui_app_gateway" {
   name                = "${var.prefix}-fh-appgw-sd-ui"
-  firewall_policy_id  =  azurerm_web_application_firewall_policy.sd_ui_appgwwafp.id
+  #firewall_policy_id  =  azurerm_web_application_firewall_policy.sd_ui_appgwwafp.id
   resource_group_name = local.resource_group_name
   location            = var.location
   tags = local.tags
