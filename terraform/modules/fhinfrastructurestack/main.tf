@@ -816,7 +816,7 @@ resource "azurerm_web_application_firewall_policy" "ref_ui_appgwwafp" {
     }
   }
   policy_settings {
-    mode = "Prevention"
+    mode = "Detection"
   }
   tags = local.tags
 }
