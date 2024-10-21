@@ -739,7 +739,7 @@ resource "azurerm_web_application_firewall_policy" "ref_ui_appgwwafp" {
   name                = "${var.prefix}-fh-waf-referral-ui"
   resource_group_name = local.resource_group_name
   location            = var.location
-  managed_rules {
+  /*managed_rules {
     exclusion {
       match_variable = "RequestCookieNames"
       selector = "*"
@@ -814,7 +814,7 @@ resource "azurerm_web_application_firewall_policy" "ref_ui_appgwwafp" {
         }
       }
     }
-  }
+  }*/
   policy_settings {
     mode = "Prevention"
   }
@@ -825,7 +825,7 @@ resource "azurerm_web_application_firewall_policy" "sd_admin_ui_appgwwafp" {
   name                = "${var.prefix}-fh-waf-sd-admin-ui"
   resource_group_name = local.resource_group_name
   location            = var.location
-  managed_rules {
+  /*managed_rules {
     exclusion {
       match_variable = "RequestCookieNames"
       selector = "*"
@@ -900,7 +900,7 @@ resource "azurerm_web_application_firewall_policy" "sd_admin_ui_appgwwafp" {
         }
       }
     }
-  }
+  }*/
 
   policy_settings {
     mode = "Prevention"
@@ -912,7 +912,7 @@ resource "azurerm_web_application_firewall_policy" "sd_ui_appgwwafp" {
   name                = "${var.prefix}-fh-waf-sd-ui"
   resource_group_name = local.resource_group_name
   location            = var.location
-  managed_rules {
+  /*managed_rules {
     exclusion {
       match_variable = "RequestCookieNames"
       selector = "*"
@@ -987,7 +987,7 @@ resource "azurerm_web_application_firewall_policy" "sd_ui_appgwwafp" {
         }
       }
     }
-  }
+  }*/
   policy_settings {
     mode = "Prevention"
   }
