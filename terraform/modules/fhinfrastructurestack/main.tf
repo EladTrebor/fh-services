@@ -1572,6 +1572,19 @@ resource "azurerm_monitor_diagnostic_setting" "ref_ui_gw_law_logs" {
   }
 }
 
+resource "azurerm_monitor_diagnostic_setting" "sd_admin_ui_gw_splunk_profile" {
+  name = "Splunk_Logging_Profile"
+  target_resource_id = azurerm_application_gateway.sd_admin_ui_app_gateway.id
+  eventhub_name = "h102p01evhprem-01"
+  enabled_log {
+    category_group = "allLogs"
+  }
+  metric {
+    category = "AllMetrics"
+    enabled = false
+  }
+}
+
 # Key Vaults, Secrets, Certs & Keys
 data "azurerm_client_config" "current" {}
 resource "azurerm_key_vault" "kv1" {
